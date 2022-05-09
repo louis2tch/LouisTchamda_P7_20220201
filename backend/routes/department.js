@@ -9,7 +9,7 @@ router.post('/', multer, departmentCtrl.createDepartment);
 router.put('/:id', auth, multer, departmentCtrl.modifyDepartment);
 router.delete('/:id', auth, departmentCtrl.deleteDepartment);
 router.get('/:id', auth, departmentCtrl.getoneDepartment);
-router.get('/', auth, departmentCtrl.getDepartment);
+router.get('/',  departmentCtrl.getDepartment);
 
 
 module.exports = router; 

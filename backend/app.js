@@ -21,7 +21,7 @@ const con = require('./controllers/config');
 
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content, Accept, Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, X-JSON, Content, Accept, Content-Type, Authorization, X-Auth-Token');
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
   next();
 });
@@ -33,6 +33,8 @@ app.use('/images', express.static(path.join(__dirname, 'images'))); //gestionnai
 app.use('/api/chat', chatRoutes);
 app.use('/api/department', departmentRoutes);
 app.use('/api/auth', userRoutes);
+
+
 
 
 app.use('/api/marche',(req, res, next)=>{

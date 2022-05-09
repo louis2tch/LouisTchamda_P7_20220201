@@ -8,23 +8,22 @@
       </ul>
     </p>-->
     <p>
-      Facilitons la communication entre collègues<br>
+      Facilitons la communication entre collègues<br />
 
-Ce réseau social interne moderne et ludique, permet a nos employés de se connaître dans un cadre plus
-informel.
+      <b>Réseau social interne</b> - A l'attention de nos employés.<br />
+      Enregistrez-vous, Connectez-vous et partagez vos contenus et opinions.
     </p>
-    
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: "HelloWorld",
   props: {
     msg: String,
-    voila : Object
-  }
-}
+    voila: Object,
+  },
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -43,5 +42,7 @@ li {
 a {
   color: #c30;
 }
-.hello{text-align: left;}
+.hello {
+  text-align: left;
+}
 </style>

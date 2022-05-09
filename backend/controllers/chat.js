@@ -1,8 +1,8 @@
-//const Sauce = require('../models/sauce');
+
 const fs = require('fs');
 let con = require('./config');
 
-//const jwt = require('jsonwebtoken');
+
 
 exports.createChat = (req, res, next)=>{
    // console.log("ICI Chat = " + req.body.chat.comment);
@@ -63,6 +63,15 @@ exports.getChat = (req, res, next)=>{
       
 }; 
 
+exports.insertImages = (req, res, next)=>{
+    console.log(req);
+    return res.status(201).json({
+        message:"cava2",
+        message2: 'res.status'
+    });
+   
+      
+};  
 
 exports.generateLike = (req, res, next) => {
     
@@ -103,7 +112,7 @@ exports.generateLike = (req, res, next) => {
             userlike.push({id_user:`${req.body.chat.id_user}`, like:`${likeBody}`, dislike:'0'}); 
         }
         
-        if(likeBody == 0) likeBody = -1;
+        if(likeBody == 0) if(likes>0)likeBody = -1; else likeBody = 0;
         userlike = JSON.stringify(userlike); 
         con.query(`update chat set userlike = '${userlike}', likes='${likeBody+likes}', dislikes='${dislikeBody}' where id = '${req.params.id}'`, function (err1, result1) {
            if (err1) throw err1;  
@@ -160,7 +169,7 @@ exports.generateDisLike = (req, res, next) => {
             userlike.push({id_user:`${req.body.chat.id_user}`, like:'0', dislike:`${dislikeBody}`}); 
         }
         
-        if(dislikeBody == 0) dislikeBody = -1;
+        if(dislikeBody == 0) if(dislikes>0)dislikeBody = -1; else dislikeBody = 0;
         userlike = JSON.stringify(userlike); 
         con.query(`update chat set userlike = '${userlike}', likes='${likeBody}', dislikes='${dislikeBody+dislikes}' where id = '${req.params.id}'`, function (err1, result1) {
            if (err1) throw err1;  

@@ -12,6 +12,6 @@ router.get('/:id', auth, chatCtrl.getoneChat);
 router.get('/',  auth, chatCtrl.getChat);
 router.post('/:id/like', auth, chatCtrl.generateLike);
 router.post('/:id/dislike', auth, chatCtrl.generateDisLike);
-
+router.post('/images',  chatCtrl.insertImages);
 
 module.exports = router;
